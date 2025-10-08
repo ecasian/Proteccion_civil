@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protección Civil - Universidad de Colima</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Habilitar dark mode en Tailwind
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    /* Animación suave al cambiar entre temas */
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+
+  <!-- Navbar -->
+  <header class="bg-green-700 text-white shadow-md dark:bg-green-900">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-3">
+        <!-- Logo -->
+        <img src="ProtecCivil.jpg.jpg" alt="Logo Protección Civil" class="h-12 w-12 rounded-full border-2 border-white">
+        <h1 class="text-xl font-bold">Protección Civil - UdeC</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#historia" class="hover:text-yellow-300">Historia</a></li>
+          <li><a href="#novedades" class="hover:text-yellow-300">Novedades</a></li>
+          <li><a href="#brigadas" class="hover:text-yellow-300">Brigadas</a></li>
+          <li><a href="#documentos" class="hover:text-yellow-300">Documentos</a></li>
+          <li><a href="#contacto" class="hover:text-yellow-300">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- Botón Dark Mode -->
+      <button id="darkModeToggle" class="ml-4 px-3 py-2 bg-white text-green-700 rounded shadow hover:bg-gray-200 dark:bg-gray-800 dark:text-yellow-300 dark:hover:bg-gray-700 transition">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gray-100 dark:bg-gray-800 text-center py-16 shadow-sm">
+    <h2 class="text-3xl font-bold text-green-700 dark:text-green-400">Bienvenidos a Protección Civil</h2>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Comprometidos con la seguridad de la comunidad universitaria proteccioncivil@ucol.mx
+    </p>
+  </section>
+
+  <!-- Historia -->
+  <section id="historia" class="max-w-6xl mx-auto py-16 px-6">
+    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Historia de la institución</h2>
+    <p class="text-gray-700 dark:text-gray-300">
+      
+      El Sistema Universitario de Protección Civil, se fortalece mediante el alumnado
+canalizándolo a la Brigada Universitaria de Primeros Auxilios (BUPA), el cual se
+establece como una respuesta a la necesidad de conformar una efectiva
+coordinación de prácticas entre docentes y alumnos, para alcanzar una mayor y
+mejor protección, auxiliando a la comunidad universitaria y a la sociedad en
+general, en caso de desastre así, como proteger su patrimonio y medio ecológico. 
+    </p>
+  </section>
+
+  <!-- Novedades -->
+  <section id="novedades" class="bg-green-50 dark:bg-gray-800 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Novedades</h2>
+      <ul class="space-y-3">
+        <li class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition">🔔 Novedad 1</li>
+        <li class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow hover:shadow-lg transition">🔔 Novedad 2</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Brigadas -->
+  <section id="brigadas" class="max-w-6xl mx-auto py-16 px-6">
+    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Sección de brigadas</h2>
+    <p class="text-gray-700 dark:text-gray-300">Aquí estará la base de datos con brigadistas y el formulario para solicitud.</p>
+  </section>
+
+  <!-- Documentos -->
+  <section id="documentos" class="bg-green-50 dark:bg-gray-800 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Documentos</h2>
+      <ul class="space-y-3">
+        <li><a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">📄 Documento 1 (Descargar)</a></li>
+        <li><a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">📄 Documento 2 (Descargar)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="max-w-6xl mx-auto py-16 px-6">
+    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Contacto</h2>
+    <form class="bg-white dark:bg-gray-800 shadow p-6 rounded-lg">
+      <label class="block mb-2 font-semibold">Nombre</label>
+      <input type="text" class="w-full border rounded p-2 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Tu nombre">
+      
+      <label class="block mb-2 font-semibold">Correo</label>
+      <input type="email" class="w-full border rounded p-2 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Tu correo">
+      
+      <label class="block mb-2 font-semibold">Mensaje</label>
+      <textarea class="w-full border rounded p-2 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" rows="4" placeholder="Tu mensaje"></textarea>
+      
+      <button class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-500 transition">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 dark:bg-green-900 text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Protección Civil - Universidad de Colima</p>
+    <div class="flex justify-center space-x-4 mt-3">
+      <a href="#" class="hover:text-yellow-300">Facebook</a>
+      <a href="#" class="hover:text-yellow-300">Twitter</a>
+      <a href="#" class="hover:text-yellow-300">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- Script Dark Mode -->
+  <script>
+    const btn = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+
+    btn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      // Cambiar icono del botón
+      btn.textContent = html.classList.contains('dark') ? "🌞" : "🌙";
+    });
+  </script>
+
+</body>
+</html>
