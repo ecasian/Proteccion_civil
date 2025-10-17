@@ -44,6 +44,88 @@
     </div>
   </header>
 
+  <!-- Banner con carrusel de imágenes -->
+<div class="banner-container">
+  <div class="carousel">
+    <img src="images/reconocimiento.jpg" class="active" alt="Reconocimiento Protección Civil">
+    <img src="images/example2" alt="ejemplo2">
+    <img src="imagenes/example3" alt="ejemplo3">
+  </div>
+
+  <div class="carousel-indicators">
+    <span class="dot active-dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<style>
+  .banner-container {
+    width: 100%;
+    height: 400px; /* ajusta el alto según tu diseño */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .carousel img.active {
+    opacity: 1;
+  }
+
+  /* Indicadores (puntitos) */
+  .carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+  .active-dot {
+    background-color: white;
+  }
+</style>
+
+<script>
+  const images = document.querySelectorAll('.carousel img');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
+
+  setInterval(() => {
+    // quitar clase active actual
+    images[index].classList.remove('active');
+    dots[index].classList.remove('active-dot');
+
+    // siguiente imagen
+    index = (index + 1) % images.length;
+
+    // activar la nueva
+    images[index].classList.add('active');
+    dots[index].classList.add('active-dot');
+  }, 10000); // 10 segundos
+</script>
+
+
   <!-- Hero -->
   <section class="bg-gray-100 dark:bg-gray-800 text-center py-16 shadow-sm">
     <h2 class="text-3xl font-bold text-green-700 dark:text-green-400">Bienvenidos a Protección Civil</h2>
@@ -78,10 +160,79 @@ general, en caso de desastre así, como proteger su patrimonio y medio ecológic
 
   <!-- Brigadas -->
   <section id="brigadas" class="max-w-6xl mx-auto py-16 px-6">
-    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Sección de brigadas</h2>
-    <p class="text-gray-700 dark:text-gray-300">Aquí estará la base de datos con brigadistas y el formulario para solicitud.</p>
-  </section>
+    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 mb-4">Únete a nuestras brigadas</h2>
+    <p class="text-gray-700 dark:text-gray-300 mb-6">
+      Si tienes vocación de servicio y quieres contribuir a la seguridad de la comunidad universitaria, llena el siguiente formulario para postularte a una de nuestras brigadas.
+    </p>
+    
+    <form action="registrar_brigadista.php" method="POST" class="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-lg space-y-6">
 
+      <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 border-b pb-2">Información Personal</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="nombre_completo" class="block mb-2 font-semibold">Nombre Completo</label>
+          <input type="text" id="nombre_completo" name="nombre_completo" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Tu nombre completo" required>
+        </div>
+        <div>
+          <label for="n_cuenta" class="block mb-2 font-semibold">Número de Cuenta o Trabajador</label>
+          <input type="text" id="n_cuenta" name="n_cuenta" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Ej. 20210001">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="email" class="block mb-2 font-semibold">Correo Electrónico</label>
+          <input type="email" id="email" name="email" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="tu-correo@ucol.mx" required>
+        </div>
+        <div>
+          <label for="telefono" class="block mb-2 font-semibold">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="312-123-4567" required>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="carrera" class="block mb-2 font-semibold">Facultad o Carrera</label>
+          <input type="text" id="carrera" name="carrera" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Ej. Facultad de Telemática">
+        </div>
+        <div>
+          <label for="semestre" class="block mb-2 font-semibold">Semestre</label>
+          <input type="number" id="semestre" name="semestre" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Ej. 8">
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 border-b pb-2 pt-4">Información de la Solicitud</h3>
+
+      <div>
+        <label for="brigada_id" class="block mb-2 font-semibold">¿A qué brigada deseas unirte?</label>
+        <select id="brigada_id" name="brigada_id" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required>
+          <option value="">-- Selecciona una brigada --</option>
+          <option value="1">Brigada de Primeros Auxilios</option>
+          <option value="2">Brigada de Evacuación</option>
+          <option value="3">Brigada Contra Incendios</option>
+          <option value="4">Brigada de Comunicación</option>
+          <option value="5">Brigada de Búsqueda y Rescate</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="motivacion" class="block mb-2 font-semibold">¿Por qué te gustaría unirte?</label>
+        <textarea id="motivacion" name="motivacion" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" rows="4" placeholder="Describe brevemente tu motivación"></textarea>
+      </div>
+      
+      <div>
+        <label for="experiencia_previa" class="block mb-2 font-semibold">¿Tienes experiencia previa? (Opcional)</label>
+        <textarea id="experiencia_previa" name="experiencia_previa" class="w-full border rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" rows="3" placeholder="Describe si has participado en cursos o tienes alguna certificación"></textarea>
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-green-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-500 transition shadow-md">
+          Enviar Solicitud
+        </button>
+      </div>
+    </form>
+</section>
   <!-- Documentos -->
   <section id="documentos" class="bg-green-50 dark:bg-gray-800 py-16 px-6">
     <div class="max-w-6xl mx-auto">
